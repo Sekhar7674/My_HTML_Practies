@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            all: unset;
+            /* aspect-ratio: 1/1; */
+            container-type: inline-size;
+            display: grid;
+            width: 100%;
+        }
+
+        .sun {
+            width: 0px;
+            height: 0px;
+            --b:orange;
+            animation: none;
+        }
+        .mercury {
+            --t: 10s; 
+            width: 50px;
+            --b:rgb(61, 41, 3);
+            animation-duration: var(--t);
+        }
+        .venus {
+            --t: 12s; /* Rotation time */
+            --b:rgb(4, 12, 57);
+            width: 100px;
+            animation-duration: var(--t);
+        }
+        .earth {
+            --t: 14s; /* Rotation time */
+            --b:rgb(6, 155, 61);
+            width: 150px;
+            animation-duration: var(--t);
+        }
+        .mars {
+            --t: 16s; 
+            width: 200px;
+            --b:rgb(138, 6, 155);
+            animation-duration: var(--t);
+        }
+        .jupiter {
+            --t: 18s; 
+            width: 250px;
+            --b:rgb(155, 6, 51);
+            animation-duration: var(--t);
+        }
+        .saturn {
+            --t: 20s;
+            width: 300px; 
+            --b:rgb(155, 130, 6);
+            animation-duration: var(--t);
+        }
+        .uranus {
+            --t: 22s; 
+            width: 350px; 
+            --b:rgb(155, 6, 53);
+            animation-duration: var(--t);
+        }
+        .neptune {
+            --t: 24s; 
+            width: 400px; 
+            --b:rgb(95, 61, 146);
+            animation-duration: var(--t);
+        }
+
+        li {
+            aspect-ratio: 1/1;
+            border: 1px dashed;
+            border-radius: 50%;
+            display: grid;
+            grid-area: 1/1;
+            place-self: center;
+            width: var(--d, 2cqi);
+
+            &::after {
+                animation: rotate var(--t, 3s) linear infinite;
+                aspect-ratio: 1/1;
+                background: var(--b);
+                border-radius: 50%;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+                content: '';
+                display: block;
+                offset-path: content-box;
+                width: var(--w, 2cqi);
+            }
+        }
+
+        @keyframes rotate {
+            to {
+                offset-distance: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li class="sun"></li>
+        <li class="mercury"></li>
+        <li class="venus"></li>
+        <li class="earth"></li>
+        <li class="mars"></li>
+        <li class="jupiter"></li>
+        <li class="saturn"></li>
+        <li class="uranus"></li>
+        <li class="neptune"></li>
+    </ul>
+
+</body>
+
+</html>
